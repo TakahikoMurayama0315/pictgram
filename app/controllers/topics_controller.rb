@@ -1,7 +1,11 @@
 class TopicsController < ApplicationController
 
   def index
+    if params[:favorite]
+    @topics = current_user.favorite_topics
+    else
     @topics = Topic.all.includes(:favorite_users)
+    end
   end
 
 
@@ -19,6 +23,8 @@ class TopicsController < ApplicationController
       render :new
     end
   end
+
+
 
   private
 

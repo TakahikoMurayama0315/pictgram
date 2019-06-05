@@ -10,8 +10,9 @@ Rails.application.routes.draw do
   delete '/logout',  to: 'sessions#destroy'
 
   resources :users
-  resources :topics
-  delete '/favorites', to: 'favorites#destroy'
-  resources :favorites
+
+  resources :topics do
+    resources :favorites, :comments
+  end
 
 end

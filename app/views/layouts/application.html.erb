@@ -22,7 +22,12 @@
         <ul class="nav navbar-nav navbar-right">
           <% if logged_in? %>
             <li>
-              <%= link_to favorites_path do %>
+            <%= link_to topics_path do %>
+              <%= image_tag "icons/index.png" %>
+            <% end %>
+            </li>
+            <li>
+              <%= link_to topics_path(favorite: true) do %>
                 <%= image_tag "icons/heart.png" %>
               <% end %>
             </li>
